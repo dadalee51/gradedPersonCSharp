@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using grade_scores;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace UnitTestGradeScore
 {
@@ -26,7 +27,7 @@ namespace UnitTestGradeScore
             lp.Add(new Person("SMITH", "FRANCIS", 85));
             lp.Add(new Person("SMITH", "ALLAN", 70));
         }
-        
+
         [TestMethod]
         public void TestNoChangeOnOriginalList()
         {
@@ -47,6 +48,23 @@ namespace UnitTestGradeScore
             Assert.AreEqual("BUNDY", rp[3].lastName);
             Assert.AreEqual("TERESSA", rp[3].firstName);
 
+        }
+
+        [TestMethod]
+        public void TestDisplayOutputToConsole()
+        {
+            Trace.TraceInformation("Before sorting:");
+            foreach(var a in rp)
+            {
+                Trace.TraceInformation(a.toString());
+            }
+
+            Trace.TraceInformation("after sorting:");
+            foreach (var a in Person.sort(rp))
+            {
+                Trace.TraceInformation(a.toString());
+            }
+            
         }
 
         [TestMethod]

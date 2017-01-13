@@ -27,6 +27,11 @@ namespace grade_scores
             return outList;
         }
 
+        public String toString()
+        {
+            return String.Format("{0}, {1}, {2}", lastName, firstName, grade);
+        }
+
         public static void Main(string[] args)
         {
             //check argument,
@@ -61,8 +66,8 @@ namespace grade_scores
             var newList = Person.sort(list);
             foreach (var p in newList)
             {
-                Console.WriteLine("{0}, {1}, {2}", p.lastName, p.firstName, p.grade);
-                fOut.WriteLine("{0}, {1}, {2}", p.lastName, p.firstName, p.grade);
+                Console.WriteLine(p.toString());
+                fOut.WriteLine(p.toString());
             }
             fOut.Flush();
             fOut.Close();
